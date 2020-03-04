@@ -1,0 +1,10 @@
+.drum-pad{
+  @include padButton;
+  @include fontBase;
+
+  display: block;
+
+  .pad-image{
+    @include images;
+  }
+}

@@ -1,0 +1,29 @@
+@import 'utils.css';
+
+.switch-wrapper{
+  display: flex;
+
+  width: 2em;
+  height: 1.1em;
+  
+  color: $DM-5-hsla-hex;
+  border: 2px solid darken($DM-5-hex, .5);
+
+  .funk-off{
+    height: 100%;
+    width: 50%;
+
+    color: $DM-1-hex;
+    border: 1px solid darken($DM-1-hex, .5);
+    justify-content: flex-start;
+  }
+
+  .funk-on{
+    height: 100%;
+    width: 50%;
+
+    color: $DM-1-hex;
+    border: 1px solid darken($DM-1-hex, .5);
+    justify-content: flex-end;
+  }
+}
