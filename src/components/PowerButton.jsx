@@ -2,12 +2,12 @@ import React from 'react';
 import { powerSwitch } from './drumBoxActions.js';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { bringFunk } from './drumBoxActions.js';
+import './PowerButton.scss';
 
 class PowerButton extends React.Component {
   constructor(props){
     super(props);
-    this.handleClick() = this.handleClick().bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick(){
@@ -18,7 +18,7 @@ class PowerButton extends React.Component {
     if(this.props.power){
     return(
       <React.Fragment>
-        <button id='power' onClick={this.handleClick()} className='power-on' />
+        <div id='power' onClick={this.handleClick} className='power-on' />
       </React.Fragment>
     );
   }
@@ -26,7 +26,7 @@ class PowerButton extends React.Component {
     else{
       return(
         <React.Fragment>
-          <button id='power' onClick={this.handleClick()} className='power-off' />
+          <div id='power' onClick={this.handleClick} className='power-off' />
         </React.Fragment>
       );
     }

@@ -1,3 +1,5 @@
+@import './utils.scss';
+
 .drum-pad{
   @include padButton;
   @include fontBase;

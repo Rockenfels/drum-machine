@@ -1,8 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { sendBeat } from './drumBoxActions.jsx';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
+import './PadDisplay.scss';
 
 class PadDisplay extends React.Component {
 
@@ -13,10 +11,10 @@ class PadDisplay extends React.Component {
       </React.Fragment>
     );
   }
+}
 
-const mapState = (state) => {
-  const { instrument } = state;
-  return({instrument: instrument});
+const mapState = (state, ownProps) => {
+  return({instrument: ownProps.instrument});
 };
 
 export default connect(mapState, null)(PadDisplay);

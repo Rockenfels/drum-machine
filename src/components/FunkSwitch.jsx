@@ -3,6 +3,7 @@ import { bringFunk } from './drumBoxActions.js';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { bringFunk } from './drumBoxActions.js';
+import './FunkSwitch.scss';
 
 class FunkSwitch extends React.Component {
   constructor(props){

@@ -1,28 +1,18 @@
 //action constants
-const FUNK = 'FUNK';
-const POWER = 'POWER';
-const HIT = 'HIT';
+export const FUNK = 'FUNK';
+export const POWER = 'POWER';
+export const HIT = 'HIT';
 
 //action creators
-const bringFunk = () => {
-  {
+export const bringFunk = () => ({
     type: FUNK
-  }
-};
+});
 
-const powerSwitch = () => {
-  {
+export const powerSwitch = () => ({
     type: POWER
-  }
-}
+});
 
-const hitNote = (instrument) => {
-  {
+export const hitNote = (instrument) => ({
     type: HIT,
     payload: instrument
-  }
-}
-
-export bringFunk;
-export powerSwitch;
-export hitNote;
+});
