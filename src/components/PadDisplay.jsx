@@ -14,7 +14,8 @@ class PadDisplay extends React.Component {
 }
 
 const mapState = (state, ownProps) => {
-  return({instrument: ownProps.instrument});
+  const { instrument } = state;
+  return({instrument: instrument});
 };
 
 export default connect(mapState, null)(PadDisplay);

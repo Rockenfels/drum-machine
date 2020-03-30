@@ -4,7 +4,21 @@
   @include padButton;
   @include fontBase;
 
-  display: block;
+  width: minmax(100px, inherit);
+  height: minmax(100px, inherit);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+
+  h4{
+    font-size: 2em;
+    text-decoration: underline;
+    padding-top: 5%;
+    margin: 0px;
+    color: lighten(gray, 35);
+  }
 
   .pad-image{
     @include images;

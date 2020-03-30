@@ -9,40 +9,58 @@ class DrumButton extends React.Component {
   constructor(props, context){
     super(props, context);
     this.handleClick = this.handleClick.bind(this);
+    this.handleKey = this.handleKey.bind(this);
   }
 
-  handleClick(event){
+  handleClick(){
     if(this.props.power){
-      if(!this.props.funkMode){
-        const instrument = event.target.getAttribute('instrument')
-        this.props.hitNote(instrument);
-        soundEffects.instrument.play();
+        this.props.hitNote(this.props.instrument);
+
+        const instrument = document.getElementById(this.props.instrument);
+        if (instrument.canPlayType('audio/mpeg')) {
+          instrument.play();
+          console.log(instrument.id.charCodeAt(0));
+        }
       }
-      else{
-        const instrument = 'funk' + event.target.getAttribute('instrument');
-        this.props.hitNote(instrument);
-        soundEffects.instrument.play();
-      }
+    }
+
+  handleKey(event){
+    const instrument = document.getElementById(this.props.instrument);
+    console.log(event.onKeyPress.charCode);
+    if(event.onKeyPress.charCode === instrument.charCodeAt(instrument.id)){
+      console.log(event.onKeyPress.charCode);
+      instrument.play()
     }
   }
 
   render(){
-    console.log(this.props.photo);
     if(!this.props.funkMode){
       return(
-        <div className="drum-pad" onClick={this.handleClick} >
-          <img src={this.props.photo} className='pad-image' />
-          <h5 className='instrument-label'>{this.props.id}</h5>
-          <audio src={soundEffects[this.props.instrument]} />
+        <div className="drum-pad" onClick={this.handleClick} onKeyPress={this.handleKey} >
+          <img src={this.props.photo} className='pad-image' alt={this.props.instrument + ' icon'}/>
+          <h4 className='instrument-label'>{this.props.id}</h4>
+          <audio
+            id={this.props.instrument}
+            preload='auto'
+            autoPlay={true}
+            html5='true'>
+            <source src={soundEffects[this.props.instrument]} type='audio/mpeg' />
+          </audio>
         </div>
       );
     }
     else{
       return(
-        <div className="drum-pad" onClick={this.handleClick} >
-          <img src={this.props.photo} className='pad-image' />
-          <h5 className='instrument-label'>{this.props.id}</h5>
-          <audio src={soundEffects['funk' + this.props.instrument]} />
+        <div className="drum-pad" onClick={this.handleClick} onKeyPress={this.handleKey} >
+          <img src={this.props.photo} className='pad-image' alt={'funk ' + this.props.instrument + ' icon'}/>
+          <h4 className='instrument-label'>{this.props.id}</h4>
+          <audio
+            src={'funk' + soundEffects[this.props.instrument]}
+            id={'funk' + this.props.instrument}
+            onClick={this.handleClick()}
+            html5={true}
+            preload={true}
+          />
         </div>
       );
     }

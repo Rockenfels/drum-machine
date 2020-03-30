@@ -11,14 +11,18 @@ class PowerButton extends React.Component {
   }
 
   handleClick(){
-    this.props.powerSwitch();
+    this.props.powerSwitch(this.props.power);
   }
 
   render(){
     if(this.props.power){
     return(
       <React.Fragment>
-        <div id='power' onClick={this.handleClick} className='power-on' />
+        <label alt='power button in on mode'>Power:
+          <div id='power' onClick={this.handleClick} className='power-on'>
+            <div id='power-slider' />
+          </div>
+        </label>
       </React.Fragment>
     );
   }
@@ -26,7 +30,11 @@ class PowerButton extends React.Component {
     else{
       return(
         <React.Fragment>
-          <div id='power' onClick={this.handleClick} className='power-off' />
+          <label alt='power button in off mode'>Power:
+            <div id='power' onClick={this.handleClick} className='power-off'>
+              <div id='power-slider' />
+            </div>
+          </label>
         </React.Fragment>
       );
     }

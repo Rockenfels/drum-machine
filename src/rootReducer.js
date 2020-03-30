@@ -5,11 +5,9 @@ import { FUNK, POWER, HIT } from './components/drumBoxActions.js';
 export const rootReducer = (defaultState = { funkMode:false, power:true, instrument:'' }, action) => {
   switch(action.type){
         case FUNK:
-        const funkify = !this.funkMode;
-      return {...defaultState, funkMode:funkify };
+      return {...defaultState, funkMode:!action.payload };
         case POWER:
-        const val = !defaultState.power;
-      return {...defaultState, power:val };
+      return {...defaultState, power:!action.payload };
         case HIT:
         return {...defaultState, instrument:action.payload}
     default:

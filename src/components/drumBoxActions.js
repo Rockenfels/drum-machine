@@ -4,12 +4,14 @@ export const POWER = 'POWER';
 export const HIT = 'HIT';
 
 //action creators
-export const bringFunk = () => ({
-    type: FUNK
+export const bringFunk = (status) => ({
+    type: FUNK,
+    payload: status
 });
 
-export const powerSwitch = () => ({
-    type: POWER
+export const powerSwitch = (power) => ({
+    type: POWER,
+    payload: power
 });
 
 export const hitNote = (instrument) => ({

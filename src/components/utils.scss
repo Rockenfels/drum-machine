@@ -23,16 +23,30 @@ $DM-5-hsla: hsla(5, 72, 43, 1);
 
 @mixin fontBase{
   font-family: $mainFont;
+
 }
 
 @mixin padButton{
-  width: 100%;
-  height: 100%;
+  width: 90%;
+  height: 90%;
 
+  background-color: $DM-2-hex;
   border: 2px solid $DM-4-hex;
   border-radius: 5px;
 }
 
 @mixin images{
-  border-radius: 50px;
+  width: 30%;
+  height: auto;
+}
+
+@mixin board-button{
+  height: 1.5em;
+  width: 2.5em;
+  background-color: darken($DM-1-hex, 30);
+  display: flex;
+  flex-direction: row;
+  grid-area: "power";
+  margin-left: 5px;
+  border-radius: 20px;
 }
