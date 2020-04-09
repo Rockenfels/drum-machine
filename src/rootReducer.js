@@ -1,11 +1,9 @@
-import { FUNK, POWER, HIT } from './components/drumBoxActions.js';
+import { POWER, HIT } from './components/drumBoxActions.js';
 
 
 /* toggles on/off state and basic/funk mode or returns default */
 export const rootReducer = (defaultState = { funkMode:false, power:true, instrument:'' }, action) => {
   switch(action.type){
-        case FUNK:
-      return {...defaultState, funkMode:!action.payload };
         case POWER:
       return {...defaultState, power:!action.payload };
         case HIT:

@@ -44,6 +44,10 @@
   padding-top: 5%;
 
   background-color: $DM-5-hex;
+
+  :focus{
+    outline: none;
+  }
 }
 
 #control-bank{

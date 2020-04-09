@@ -18,15 +18,6 @@ export const soundEffects = {
   tom3: tom3,
   bass: bass,
   cowbell: cowbell,
-  funkCrash: 'funkCrash',
-  funkRide: 'funkRide',
-  funkHiHat: 'funkHiHat',
-  funkSnare: 'funkSnare',
-  funkTom1: 'funkTom1',
-  funkTom2: 'funkTom2',
-  funkBass: 'funkBass',
-  funkTriangle: 'funkTriangle',
-  funkCongo: 'funkCongo'
 };
 
 export default soundEffects;
