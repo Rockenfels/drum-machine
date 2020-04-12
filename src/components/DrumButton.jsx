@@ -29,7 +29,7 @@ class DrumButton extends React.Component {
   handlePlay(e){
     console.log(e.key);
     if(this.props.power){
-      if(e.key === this.props.instrument){
+      if(e.key === this.props.hotKey){
         this.props.hitNote(this.props.id);
 
         const instrument = document.getElementById(this.props.hotKey);
@@ -54,6 +54,7 @@ class DrumButton extends React.Component {
               //autoPlay={true}
               html5='true'
               onKeyDown={this.handlePlay}
+              tabIndex='0'
               >
               <source src={soundEffects[this.props.id]} type='audio/mpeg' />
             </audio>
