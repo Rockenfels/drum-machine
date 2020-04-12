@@ -10,13 +10,14 @@ class DrumButton extends React.Component {
     super(props, context);
 
     this.handleClick = this.handleClick.bind(this);
+    this.handlePlay = this.handlePlay.bind(this);
   }
 
   handleClick(){
     if(this.props.power){
-        this.props.hitNote(this.props.instrument);
+        this.props.hitNote(this.props.id);
 
-        const instrument = document.getElementById(this.props.instrument);
+        const instrument = document.getElementById(this.props.hotKey);
 
         if (instrument.canPlayType('audio/mpeg')) {
           instrument.play();
@@ -25,31 +26,49 @@ class DrumButton extends React.Component {
       }
   }
 
-  render(){
-          return(
+  handlePlay(e){
+    console.log(e.key);
+    if(this.props.power){
+      if(e.key === this.props.instrument){
+        this.props.hitNote(this.props.id);
 
-              <div className="drum-pad" onClick={this.handleClick} onKeyDown={this.handlePress}>
-                <img src={this.props.photo} className='pad-image' alt={this.props.instrument + ' icon'}/>
-                <h4 className='instrument-label'>{this.props.id}</h4>
-                  <audio
-                    class='clip'
-                    id={this.props.instrument}
-                    preload='auto'
-                    //autoPlay={true}
-                    html5='true'>
-                    <source src={soundEffects[this.props.instrument]} type='audio/mpeg' />
-                  </audio>
-              </div>
-          );
+        const instrument = document.getElementById(this.props.hotKey);
+
+        if (instrument.canPlayType('audio/mpeg') && e.key === this.props.hotKey) {
+          instrument.play();
+          console.log(instrument.id.charCodeAt(0));
+        }
+      }
     }
+  }
+
+  render(){
+    return(
+        <div className="drum-pad" onClick={this.handleClick} >
+          <img src={this.props.photo} className='pad-image' alt={this.props.id + ' icon'}/>
+          <h4 className='instrument-label'>{this.props.hotKey}</h4>
+            <audio
+              className='clip'
+              id={this.props.hotKey}
+              preload='auto'
+              //autoPlay={true}
+              html5='true'
+              onKeyDown={this.handlePlay}
+              >
+              <source src={soundEffects[this.props.id]} type='audio/mpeg' />
+            </audio>
+        </div>
+    );
+  }
 }
 
 const mapState = (state, ownProps) => {
-  const { power } = state;
+  const { power, instrument } = state;
   return({
     power: power,
+    instrument: instrument,
     photo: ownProps.photo,
-    instrument: ownProps.instrument,
+    hotKey: ownProps.hotKey,
   });
 }
 
