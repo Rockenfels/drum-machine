@@ -21,6 +21,8 @@ $DM-3-hsla: hsla(146, 43, 31, 1);
 $DM-4-hsla: hsla(45, 75, 48, 1);
 $DM-5-hsla: hsla(5, 72, 43, 1);
 
+$base-shadow: 2px 2px 5px black;
+
 @mixin fontBase{
   font-family: $mainFont;
 
@@ -30,9 +32,10 @@ $DM-5-hsla: hsla(5, 72, 43, 1);
   width: 90%;
   height: 90%;
 
-  background-color: $DM-2-hex;
-  border: 2px solid $DM-4-hex;
+  background-color: lighten($DM-2-hex, 20);
+  border: 2px solid darken($DM-2-hex, 30);
   border-radius: 5px;
+  box-shadow: $base-shadow;
 }
 
 @mixin images{

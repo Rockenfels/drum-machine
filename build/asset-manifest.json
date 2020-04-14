@@ -1,0 +1,39 @@
+{
+  "files": {
+    "main.css": "/static/css/main.46ce87c1.chunk.css",
+    "main.js": "/static/js/main.2c83c891.chunk.js",
+    "main.js.map": "/static/js/main.2c83c891.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.2323a015.js",
+    "runtime-main.js.map": "/static/js/runtime-main.2323a015.js.map",
+    "static/js/2.9cfebf93.chunk.js": "/static/js/2.9cfebf93.chunk.js",
+    "static/js/2.9cfebf93.chunk.js.map": "/static/js/2.9cfebf93.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.567dc4b7cefe92188c2acadac983cef0.js": "/precache-manifest.567dc4b7cefe92188c2acadac983cef0.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.46ce87c1.chunk.css.map": "/static/css/main.46ce87c1.chunk.css.map",
+    "static/js/2.9cfebf93.chunk.js.LICENSE.txt": "/static/js/2.9cfebf93.chunk.js.LICENSE.txt",
+    "static/media/80s-COWBELL1.mp3": "/static/media/80s-COWBELL1.35183899.mp3",
+    "static/media/80s-HHCLOSE1.mp3": "/static/media/80s-HHCLOSE1.8811ab62.mp3",
+    "static/media/909-Crash-HD0.mp3": "/static/media/909-Crash-HD0.5fd04c27.mp3",
+    "static/media/909-HiTom-0D0.mp3": "/static/media/909-HiTom-0D0.d95aac58.mp3",
+    "static/media/909-Kick-T7A0D0.mp3": "/static/media/909-Kick-T7A0D0.4dd3bc43.mp3",
+    "static/media/909-LoTom-0D7.mp3": "/static/media/909-LoTom-0D7.cb6650ee.mp3",
+    "static/media/909-MidTom-0DA.mp3": "/static/media/909-MidTom-0DA.8211caf5.mp3",
+    "static/media/909-Ride-D4.mp3": "/static/media/909-Ride-D4.7cacfb41.mp3",
+    "static/media/909-Snare-T0T0S3.mp3": "/static/media/909-Snare-T0T0S3.d23e09cd.mp3",
+    "static/media/bass.module.png": "/static/media/bass.module.4859fd99.png",
+    "static/media/cowbell.module.png": "/static/media/cowbell.module.30d266dc.png",
+    "static/media/crash.module.png": "/static/media/crash.module.016e3fe7.png",
+    "static/media/highHat.module.png": "/static/media/highHat.module.6f197f00.png",
+    "static/media/ride.module.png": "/static/media/ride.module.0bf64eb8.png",
+    "static/media/snare.module.png": "/static/media/snare.module.f5c4564a.png",
+    "static/media/tomTom1.module.png": "/static/media/tomTom1.module.d78112b9.png",
+    "static/media/tomTom2.module.png": "/static/media/tomTom2.module.00d085b3.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.2323a015.js",
+    "static/js/2.9cfebf93.chunk.js",
+    "static/css/main.46ce87c1.chunk.css",
+    "static/js/main.2c83c891.chunk.js"
+  ]
+}

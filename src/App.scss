@@ -16,7 +16,7 @@
   }
 }
 
-#drum-machine{
+#drum-shell{
   width: 100vw;
   height: 100%;
 
@@ -26,14 +26,16 @@
   grid-template-areas: "sounds controls";
   grid-gap: 10px;
 
-  background-color: $DM-3-hex;
+  background-color: lighten($DM-3-hex, 40);
+  box-shadow: $base-shadow;
 }
 
-#pad-bank{
+#drum-machine{
   width: 70vw;
   height: 80vh;
   border: 2px solid darken($DM-5-hex, 20);
   border-radius: 5px;
+  box-shadow: $base-shadow;
 
   grid-area: "sounds";
   display: grid;
@@ -47,7 +49,7 @@
 
   padding-top: 5%;
 
-  background-color: $DM-5-hex;
+  background-color: lighten($DM-5-hex, 35);
 
   :focus{
     outline: none;
@@ -58,9 +60,10 @@
   width: 28vw;
   height: 40vh;
   grid-area: "controls";
-  background-color: $DM-4-hex;
+  background-color: lighten($DM-4-hex, 35);
   border: 2px solid darken($DM-4-hex, 20);
   border-radius: 5px;
+  box-shadow: $base-shadow;
 
   display: flex;
   flex-direction: column;

@@ -1,5 +1,5 @@
 import React from 'react';
-import DrumButton from './components/DrumButton.jsx';
+import DrumPad from './components/DrumPad.jsx';
 import PadDisplay from './components/PadDisplay.jsx';
 import PowerButton from './components/PowerButton.jsx';
 import './App.scss';
@@ -10,30 +10,62 @@ import snare from '/Users/DogPa/workspace/drum-machine/src/images/snare.module.p
 import tom1 from '/Users/DogPa/workspace/drum-machine/src/images/tomTom1.module.png';
 import tom2 from '/Users/DogPa/workspace/drum-machine/src/images/tomTom2.module.png';
 import bass from '/Users/DogPa/workspace/drum-machine/src/images/bass.module.png';
-import cowbell from '/Users/DogPa/workspace/drum-machine/src/images/triangle.module.png';
+import cowbell from '/Users/DogPa/workspace/drum-machine/src/images/cowbell.module.png';
+import { connect } from 'react-redux';
+import { hitNote } from './components/drumBoxActions.js';
+import { bindActionCreators } from 'redux';
 
 class App extends React.Component{
-    render(){
-      return (
+  componentDidMount() {
+    document.addEventListener("keydown", e => {
+      this.handlePlay(e);
+    });
+  }
+
+  handlePlay = e => {
+        const instrument = document.getElementById(e.key.toUpperCase());
+        if (instrument !== null && instrument.canPlayType("audio/mpeg") && this.props.power) {
+          instrument.play();
+          this.props.hitNote(instrument.getAttribute('instrument'));
+        }
+  };
+  render(){
+    return (
+        <div id='drum-shell'>
           <div id='drum-machine'>
-            <div id='pad-bank'>
-                <DrumButton id='crash' hotKey='q' className='drum-pad' photo={crash} alt="crash cymbal, hotkey q" />
-                <DrumButton id='ride' hotKey='w' className='drum-pad' photo={ride} alt="ride cymbal, hotkey w" />
-                <DrumButton id='hiHat' hotKey='e' className='drum-pad' photo={hiHat} alt="hi-hat cymbal, hotkey e" />
-                <DrumButton id='snare' hotKey='a' className='drum-pad' photo={snare} alt="snare drum, hotkey a" />
-                <DrumButton id='tom1' hotKey='s' className='drum-pad' photo={tom1} alt="tom 1, hotkey s" />
-                <DrumButton id='tom2' hotKey='d' className='drum-pad' photo={tom2} alt="tom 2, hotkey d" />
-                <DrumButton id='tom3' hotKey='z' className='drum-pad' photo={tom2} alt="tom3, hotkey z" />
-                <DrumButton id='bass' hotKey='x' className='drum-pad' photo={bass} alt="bass, hotkey x" />
-                <DrumButton id='cowbell' hotKey='c' className='drum-pad' photo={cowbell} alt="cowbell, hotkey c" />
-            </div>
-            <div id='control-bank' >
-              <PadDisplay id='display' />
-              <PowerButton />
-            </div>
+              <DrumPad id='crash' instrument='crash' hotKey='Q' photo={crash} alt="crash cymbal, hotkey q" >Q</DrumPad>
+              <DrumPad id='ride' instrument='ride' hotKey='W' photo={ride} alt="ride cymbal, hotkey w" >W</DrumPad>
+              <DrumPad id='hiHat' instrument='hiHat' hotKey='E' photo={hiHat} alt="hi-hat cymbal, hotkey e" >E</DrumPad>
+              <DrumPad id='snare' instrument='snare' hotKey='A' photo={snare} alt="snare drum, hotkey a" >A</DrumPad>
+              <DrumPad id='tom1' instrument='tom1' hotKey='S' photo={tom1} alt="tom 1, hotkey s" >S</DrumPad>
+              <DrumPad id='tom2' instrument='tom2' hotKey='D' photo={tom2} alt="tom 2, hotkey d" >D</DrumPad>
+              <DrumPad id='tom3' instrument='tom3' hotKey='Z' photo={tom2} alt="tom3, hotkey z" >Z</DrumPad>
+              <DrumPad id='bass' instrument='bass' hotKey='X' photo={bass} alt="bass, hotkey x" >X</DrumPad>
+              <DrumPad id='cowbell' instrument='cowbell' hotKey='C' photo={cowbell} alt="cowbell, hotkey c" >C</DrumPad>
           </div>
-      );
-    }
+          <div id='control-bank' >
+            <PadDisplay id='display' />
+            <PowerButton />
+          </div>
+        </div>
+    );
+  }
 }
 
-export default App;
+const mapState = (state) => {
+  const { power } = state;
+  return {power: power};
+}
+
+const mapDispatch = dispatch =>
+  bindActionCreators(
+    {
+      hitNote
+    },
+    dispatch
+  );
+
+export default connect(
+  mapState,
+  mapDispatch
+)(App);

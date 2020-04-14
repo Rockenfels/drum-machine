@@ -7,6 +7,7 @@ class PadDisplay extends React.Component {
   render(){
     return(
       <React.Fragment>
+        <h1>Beat-O-Matic</h1>
         <div id='display'>{this.props.instrument}</div>
       </React.Fragment>
     );
